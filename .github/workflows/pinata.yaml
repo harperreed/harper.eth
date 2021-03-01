@@ -1,4 +1,4 @@
-name: 'Firebase: Build and Deploy'
+name: 'Pinata: Build and Deploy'
 on:
   workflow_dispatch:
   push:
