@@ -33,7 +33,7 @@ jobs:
           name: hugo-public-dist
           path: public
       - name: Deploy to Pinata
-        uses: aquiladev/ipfs-action@v1
+        uses: aquiladev/ipfs-action@v0.1.5
         id: pinata
         with:
           path: public
