@@ -1,10 +1,9 @@
 name: 'Pinata: Build and Deploy'
 on:
-  workflow_dispatch:
+  workflow_dispatch: null
   push:
     branches:
-      - development
-
+      - main
 jobs:
   build:
     name: Build HUGO
@@ -21,7 +20,6 @@ jobs:
         with:
           name: hugo-public-dist
           path: public
-
   deploy:
     name: Deploy to Firebase
     needs: build
@@ -33,13 +31,12 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: hugo-public-dist
-          path: public          
-
+          path: public
       - name: Deploy to Pinata
         uses: aquiladev/ipfs-action@v1
         with:
-        path: ./public
-        service: pinata
-        pinataKey: ${{ secrets.PINATA_KEY }}
-        pinataSecret: ${{ secrets.PINATA_SECRET }}
-        pinataPinName: harper.eth
+          path: ./public
+          service: pinata
+          pinataKey: '${{ secrets.PINATA_KEY }}'
+          pinataSecret: '${{ secrets.PINATA_SECRET }}'
+          pinataPinName: harper.eth
