@@ -9,9 +9,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.9",
     "core-js": "^3.8.3",
+    "graphql": "^15.5.0",
     "nuxt": "^2.14.12",
-    "nuxt-buefy": "^0.4.4"
+    "nuxt-buefy": "^0.4.4",
+    "vue-apollo": "^3.0.7"
   },
   "devDependencies": {}
 }
