@@ -7,6 +7,10 @@ draft: false
 
 My name is [Harper Reed](https://harperreed.com).
 
+This website is hosted on IPFS. You can typically access it via <a href="harper.eth.link">harper.eth.link</a>.
+
+I believe that *web3* is part of our very weird future. I am not so sure on the details, but it is very exciting.
+
 ## About Harper Reed
 
 I am a computer operator who likes to make things. Also pranks. 
