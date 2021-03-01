@@ -1,0 +1,45 @@
+name: 'Firebase: Build and Deploy'
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - development
+
+jobs:
+  build:
+    name: Build HUGO
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Build Hugo
+        uses: lowply/build-hugo@v0.74.1
+        env:
+          HUGO_ENV: production
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: hugo-public-dist
+          path: public
+
+  deploy:
+    name: Deploy to Firebase
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: hugo-public-dist
+          path: public          
+
+      - name: Deploy to Pinata
+        uses: aquiladev/ipfs-action@v1
+        with:
+        path: ./public
+        service: pinata
+        pinataKey: ${{ secrets.PINATA_KEY }}
+        pinataSecret: ${{ secrets.PINATA_SECRET }}
+        pinataPinName: harper.eth
