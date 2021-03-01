@@ -1,0 +1,39 @@
+baseURL: /
+
+publishDir: "public"
+languageCode: en-us
+title: harper.eth
+theme: "harper-media"
+canonifyURLs: true
+enableRobotsTXT: true
+
+
+params:
+  ga_id: "UA-70650-69"
+  description: "Harper Reed in IPFS"
+  keywords: ""
+  cachebuster: "harper rules"
+  name: "Harper Reed"
+  email: harper@modest.com
+  icon: fa-skull-crossbones
+  amazon_tag: harperrules0d-20
+  social:
+    - name: "@harper"
+      icon: "fab fa-twitter"
+      url: "http://twitter.com/harper"
+    - name: harper.blog
+      icon: "fas fa-pen"
+      url: "http://harper.blog"
+    - name: harper.photos
+      icon: "fas fa-camera"
+      url: "https://harper.photos"
+    - name: reading.lol
+      icon: "fas fa-book"
+      url: "https://reading.lol"
+    - name: harperreed.com
+      icon: "fas fa-link"
+      url: "http://harper.lol"
+
+disableKinds:
+  - section
+

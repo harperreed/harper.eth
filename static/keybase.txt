@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/harper
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://reading.lol
+  * I am harper (https://keybase.io/harper) on keybase.
+  * I have a public key with fingerprint 2C65 36AA AD81 F4A1 7FDE  C73C 3F9E BC67 5788 BEE6
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101bd4a6eb4b035e52456cb72894b7565330767df283435652eae03d2bc3cccca790a",
+      "fingerprint": "2c6536aaad81f4a17fdec73c3f9ebc675788bee6",
+      "host": "keybase.io",
+      "key_id": "3f9ebc675788bee6",
+      "kid": "0101bd4a6eb4b035e52456cb72894b7565330767df283435652eae03d2bc3cccca790a",
+      "uid": "e949ea112d1cb18ce1bed1d89ab68700",
+      "username": "harper"
+    },
+    "service": {
+      "hostname": "reading.lol",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1552859173,
+  "expire_in": 157680000,
+  "prev": "14bb30c553240b02e2af9d4b33170a41f397a8dfcf225b264015ae5f7133ee62",
+  "seqno": 293,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+
+owGtkmtIFUEUx+81LTMsiQjLzNqiUm66M7Ozj0siQUVFTwwULC4zu7O3Rbv3urua
+JmEPetH7Bb0zkewJEaJJDypCgySCHlBgZZE9NFHwgxJZs1Lf+tj5MjNn/r//nHOY
+Q8kjfIn+vHN3wgW773X6n3ylvrUH7mdWCTRqVArBKqGYDS+sxGCOGyq2DCEoiEAE
+1JCIzKhERYQZhhKWdapAVZOogmWMkKjIimFCFUmInyEjTEQGpDrSeRBFE4kQEEwr
+EmZ2zLYiLreFOgdlQoihAlMiQDENpitIR6bGqC4rWFFVypjMwfVRxyN4cZQ4LNuK
+8hw/hIbL+4f+P9ddNmzHNEljBABoAJ0CVWeAMgMYqkaorCqi6AkdZkfIBsbV64kd
+Y7awOSDwXLmlM2+sXh9/7m1GDD6O7JJoCQdjdtSN6nzLQdeNOUEPdCtjnnIjo6E/
+HiFqRTyKE+XMdqxoRAgCrtRdyzMFGEMVa0BBAYFVxCybhSxPgRVZFXl477Bybgkk
+SpGoY4wKoCRSETJITM2QKEJAEYkETKQpRDVM3YQQUyhLIsCEYVMBCPERQ8FrqzQS
+FYJQ44+5JMxdHSscIW6ZzYTNSXv8KN7nT/SlT5weH2Dyletb+y9Uv22d9/frJcR5
+/86XNDrlb+bR4VFDuc98UsL+4Ll9cSdvzYybUvSwYdfjpVPXPWi6KCw52tfX3rFm
+0YqB4nazsvl8Vs2XM3B56ppvkwpPfl15tcXf5kzYdGxc6u2FN9J8s7+M/JQ3uDT5
+Q2+4J7E6Z0xt/5VI17be/oUpA4UddauP3F2cbK+r0QbHFyzxF6Xt/VEU27eg+Xvm
+mBK8OGfZqe2fO29uzKi9OvfgpaoTtbqbu7urPnA0V2t4NdbBD9o+6u75BScSum83
+ySktL/IOvqtvTf+8Jd1OfdpQmtlbnRx7/+b5jEngeM+0xqGMVdbpa3Vvq4TCimv5
+YHLF9Pydr29g8edebdba1sHr48DZ7saBZSxrx6+Xc4rmX/4N
+=kleE
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/harper
+
+==================================================================
+

@@ -1,0 +1,21 @@
+  {{ block "head" . }}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  {{ $title := delimit (slice .Title "&middot;" .Site.Title) " " }}
+  <title>{{ $title }}</title>
+
+  <meta name="description" content="{{ .Site.Params.description }}">
+  <meta name="keywords" content="{{ .Site.Params.keywords }}" />
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}"
+    href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}">
+  <meta name="author" content="Harper Reed <{{ .Site.Params.email }}>">
+
+  {{- partial "head/opengraph.html" . -}}
+  {{- partial "head/javascript.html" . -}}
+  {{- partial "head/css.html" . -}}
+
+
+
+  {{ end }}

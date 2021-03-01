@@ -1,0 +1,57 @@
+
+html {
+  font-size: 1rem;
+}
+
+@include media-breakpoint-up(sm) {
+  html {
+    font-size: 1.9rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  html {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html {
+    font-size: 1.6rem;
+  }
+}
+
+/* ------- */
+
+a {
+  color: #000;
+}
+
+a:hover {
+  color: #666666;
+}
+
+.book{
+	margin:10px;
+
+}
+
+.book-figure{
+  width: 250px;
+  margin: 10px;
+}
+
+.page-content{
+
+}
+
+#books{
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  flex-direction: row;
+
+  justify-content: space-evenly;
+}
