@@ -1,17 +1,18 @@
 <template>
   <div>
-    <section class="main-content columns">
-      <div class="container column is-10">
-        <nuxt />
+    <section class="hero is-medium">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <nuxt />
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <script>
-export default {
-
-};
+export default {};
 </script>
 
-<style scoped></style>
+<style>
+</style>

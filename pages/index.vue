@@ -1,42 +1,96 @@
 <template>
-  <section class="section">
-    <h1 class="title">Hello!</h1>
-    <p class="block">My name is Harper Reed</p>
-    <p class="block">
-      This site is hosted on IPFS and powered by information stored on the ethereum blockchain
-      transactions.
-    </p>
-    <h1 class="title">About Harper Reed</h1>
+  <div>
+    <div class="columns is-8 is-variable">
+      <div class="column has-text-left">
+        <h1 class="title is-1">Harper Reed</h1>
+        <p class="is-size-3">{{ ensName }}</p>
+        <p class="is-size-5 block">
+          {{ ethAddress }}
+        </p>
+        <p class="is-size-4 block">
+          {{ bio }}
+        </p>
+        <p class="is-size-4 block">
+          Send them an email at
+          <a :href="`mailto:${email}`">{{ email }}</a
+          >.
+        </p>
 
-    <p class="block">
-      I am a computer operator who likes to make things. Also pranks.
-    </p>
+        <div class="social-media block buttons">
+          <a
+            v-for="(item, key) of links"
+            :key="key"
+            :href="item.href"
+            target="_blank"
+            class="button is-light is-large"
+            :text="item.title"
+            ><b-icon :icon="item.icon" size="is-small"> </b-icon>
+          </a>
+        </div>
+      </div>
 
-    <p class="block">
-      You can learn more about me at my website harperreed.com.
-    </p>
-
-    <p class="block">Follow me on:
-      <ul>
-        <li>Twitter</li>
-        <li>Instagram</li>
-        <li>My blog</li>
-      </ul>
-    </p>
-    <p class="block">
-      Feel free to reach out via Twitter or send me an email @
-      harper@modest.com.
-    </p>
-  </section>
+      <div class="column is-one-third has-text-left">
+        <Nifty :ethAddress="ethAddress" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import Card from "~/components/Card";
+import Nifty from "~/components/Nifty";
 
 export default {
   name: "HomePage",
   components: {
-    Card
-  }
+    Nifty,
+  },
+  data() {
+    return {
+      ethAddress: "0xe7e84204b7e180454e5c40d0e04d346214a83f85",
+      ensName: "harper.eth",
+      email: "harper@modest.com",
+      bio: "Harper Reed is an entrepreneur and hacker based in Chicago, il.",
+      links: [
+        {
+          title: "harper.lol",
+          icon: "vhs",
+          href: "https://harper.lol",
+        },
+        {
+          title: "harper.blog",
+          icon: "lead-pencil",
+          href: "https://harper.blog",
+        },
+        {
+          title: "reading.lol",
+          icon: "book-open-variant",
+          href: "https://reading.lol",
+        },
+        {
+          title: "harper.photos",
+          icon: "film",
+          href: "https://harper.photos",
+        },
+
+        {
+          title: "@harper",
+          icon: "twitter",
+          href: "https://twitter.com/harper",
+        },
+        {
+          title: "@harperreed",
+          icon: "instagram",
+          href: "https://instagram.com/harperreed",
+        },
+      ],
+    };
+  },
 };
 </script>
+
+<style scoped>
+a {
+  color: #777;
+  text-decoration: underline;
+}
+</style>
