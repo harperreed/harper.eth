@@ -6,20 +6,22 @@ on:
       - main
 jobs:
   build:
-    name: Build HUGO
+    name: Build NUXT
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
-      - name: Build Hugo
-        uses: lowply/build-hugo@v0.74.1
-        env:
-          HUGO_ENV: production
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn generate
+
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
-          name: hugo-public-dist
-          path: public
+          name: nuxt-public-dist
+          path: dist
   deploy:
     name: Deploy to IPFS
     needs: build
@@ -30,13 +32,13 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: hugo-public-dist
-          path: public
+          name: nuxt-public-dist
+          path: dist
       - name: Deploy to Pinata
         uses: aquiladev/ipfs-action@v0.1.5
         id: pinata
         with:
-          path: public
+          path: dist
           service: pinata
           pinataKey: '${{ secrets.PINATA_KEY }}'
           pinataSecret: '${{ secrets.PINATA_SECRET }}'
