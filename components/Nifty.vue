@@ -1,14 +1,15 @@
 <template>
   <div>
     <h1 class="title is-1" v-if="assets">NFTs</h1>
+
     <b-carousel
-      v-if="assets"
+      v-if="tokens"
       animated="slide"
       :arrow="true"
       :repeat="false"
       :indicator="false"
     >
-      <b-carousel-item v-for="(asset, i) in assets" :key="i">
+      <b-carousel-item v-for="(asset, i) in tokens" :key="i">
         <div class="card">
           <div class="card-image" v-if="asset.image_url">
             <figure class="image is-4by3">
@@ -37,6 +38,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   props: {
     ethAddress: {
@@ -49,8 +51,14 @@ export default {
       assets: undefined,
     };
   },
+  computed: {
+    ...mapState({
+      tokens: (state) => state.nifty.tokens,
+    }),
+  },
   mounted() {
-    this.getAssets();
+    // this.getAssets();
+    this.$store.dispatch("nifty/getTokens");
   },
   methods: {
     async getAssets() {
