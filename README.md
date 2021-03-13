@@ -7,7 +7,7 @@ You can easily use it yourself.
 
 ## Use it for your page.
 
-In the `nuxt.config.js` edit the following: 
+First, fork this repo. Then edit the  `nuxt.config.js`:
 
 
 ### Title
@@ -22,7 +22,7 @@ In the `nuxt.config.js` edit the following:
   },
 ```
 
-Then you can build it. 
+Then you can build it and upload it to IPFS
 
 ## Build Setup
 
