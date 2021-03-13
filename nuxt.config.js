@@ -4,7 +4,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "harper.eth - Harper's IPFS website",
+    title: "harper.eth - Harper's IPFS website", // change me
+
     htmlAttrs: {
       lang: "en"
     },
@@ -14,6 +15,9 @@ export default {
       { hid: "description", name: "description", content: "" }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+  },
+  env: {
+    ethAddress: "0xe7e84204b7e180454e5c40d0e04d346214a83f85" // change me
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -33,7 +37,8 @@ export default {
     // https://go.nuxtjs.dev/buefy
     "nuxt-buefy",
     "nuxt-material-design-icons",
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
+    "nuxt-vuex-localstorage"
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

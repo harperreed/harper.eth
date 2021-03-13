@@ -22,10 +22,10 @@ export default {
     Nifty,
     Identity,
   },
-  data() {
-    return {
-      ethAddress: "0xe7e84204b7e180454e5c40d0e04d346214a83f85",
-    };
+  computed: {
+    ethAddress() {
+      return process.env.ethAddress;
+    },
   },
 };
 </script>

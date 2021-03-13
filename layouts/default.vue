@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="hero is-medium">
+    <section class="hero">
       <div class="hero-body">
         <div class="container has-text-centered">
           <nuxt />
