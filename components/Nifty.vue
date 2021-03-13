@@ -1,15 +1,14 @@
 <template>
   <div>
     <h1 class="title is-1" v-if="assets">NFTs</h1>
-
     <b-carousel
-      v-if="tokens"
+      v-if="assets"
       animated="slide"
       :arrow="true"
       :repeat="false"
       :indicator="false"
     >
-      <b-carousel-item v-for="(asset, i) in tokens" :key="i">
+      <b-carousel-item v-for="(asset, i) in assets" :key="i">
         <div class="card">
           <div class="card-image" v-if="asset.image_url">
             <figure class="image is-4by3">
@@ -46,19 +45,14 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      assets: undefined,
-    };
-  },
   computed: {
     ...mapState({
-      tokens: (state) => state.nifty.tokens,
+      assets: (state) => state.nifty.assets,
     }),
   },
   mounted() {
     // this.getAssets();
-    this.$store.dispatch("nifty/getTokens");
+    this.$store.dispatch("nifty/getAssets", { owner: this.ethAddress });
   },
   methods: {},
 };

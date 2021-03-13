@@ -33,17 +33,8 @@ export default {
     // https://go.nuxtjs.dev/buefy
     "nuxt-buefy",
     "nuxt-material-design-icons",
-    "@nuxtjs/axios",
-    "@nuxtjs/apollo"
+    "@nuxtjs/axios"
   ],
-  apollo: {
-    clientConfigs: {
-      default: {
-        httpEndpoint:
-          "https://api.thegraph.com/subgraphs/name/wighawag/eip721-subgraph"
-      }
-    }
-  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}
