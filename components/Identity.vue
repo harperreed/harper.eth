@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1 class="title is-1">Harper Reed</h1>
-    <p class="is-size-3">{{ ensName }}</p>
+    <h1 class="title is-1" v-if="ensName">{{ ensName }}</h1>
+
     <p class="is-size-5 block">
       {{ ethAddress }}
     </p>
-    <p class="is-size-4 block">
-      {{ bio }}
+    <p class="is-size-4 block" v-if="ensData.description">
+      {{ ensData.description }}
     </p>
-    <p class="is-size-4 block">
+    <p class="is-size-4 block" v-if="ensData.email">
       Send them an email at
-      <a :href="`mailto:${email}`">{{ email }}</a
+      <a :href="`mailto:${ensData.email}`">{{ ensData.email }}</a
       >.
     </p>
 
@@ -37,54 +37,52 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      ensName: "harper.eth",
-      email: "harper@modest.com",
-      bio: "Harper Reed is an entrepreneur and hacker based in Chicago, il.",
-      links: [
-        {
-          title: "harper.lol",
-          icon: "vhs",
-          href: "https://harper.lol",
-        },
-        {
-          title: "harper.blog",
-          icon: "lead-pencil",
-          href: "https://harper.blog",
-        },
-        {
-          title: "reading.lol",
-          icon: "book-open-variant",
-          href: "https://reading.lol",
-        },
-        {
-          title: "harper.photos",
-          icon: "film",
-          href: "https://harper.photos",
-        },
-
-        {
-          title: "@harper",
-          icon: "twitter",
-          href: "https://twitter.com/harper",
-        },
-        {
-          title: "@harperreed",
-          icon: "instagram",
-          href: "https://instagram.com/harperreed",
-        },
-      ],
-    };
-  },
   computed: {
     ...mapState({
-      assets: (state) => state.nifty.assets,
+      ensName: (state) => state.identity.ensName,
+      ensData: (state) => state.identity.ensData,
     }),
+    links() {
+      const links = [];
+      if (this.ensData) {
+        if (this.ensData["url"]) {
+          links.push({
+            title: "URL",
+            icon: "home",
+            href: `http://${this.ensData["url"]}`,
+          });
+        }
+        if (this.ensData["vnd.twitter"]) {
+          links.push({
+            title: `@${this.ensData["vnd.twitter"]}`,
+            icon: "twitter",
+            href: `https://twitter.com/${this.ensData["vnd.twitter"]}`,
+          });
+        }
+        if (this.ensData["vnd.github"]) {
+          links.push({
+            title: `github/${this.ensData["vnd.github"]}`,
+            icon: "github",
+            href: `https://github.com/${this.ensData["vnd.github"]}`,
+          });
+        }
+      }
+      return links;
+    },
+  },
+  watch: {
+    ensName: function (ensName) {
+      console.log(ensName);
+      this.$store.dispatch("identity/getENSData", {
+        ensName,
+      });
+    },
   },
   mounted() {
     // this.getAssets();
-    this.$store.dispatch("nifty/getAssets", { owner: this.ethAddress });
+    this.$store.dispatch("identity/getENSName", {
+      ethAddress: this.ethAddress,
+    });
   },
   methods: {},
 };
