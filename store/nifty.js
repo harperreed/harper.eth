@@ -6,46 +6,66 @@ export const state = () => ({
 
 export const actions = {
   async getTokens({ commit, dispatch }) {
-    const gqlQuery = gql`
+    const nftQuery = gql`
       {
-        tokens(where: { owner: "0xe7e84204b7e180454e5c40d0e04d346214a83f85" }) {
-          tokenURI
+        tokens(where: { owner: "0x1010595F96Ab62b31BfeAc411Ec5f8f60DB5DC23" }) {
           tokenID
           contract {
-            id
-          }
-          owner {
             id
           }
         }
       }
     `;
+    console.log(nftQuery);
+
+    const owner = "0xe7e84204b7e180454e5c40d0e04d346214a83f85";
 
     let response = await this.app.apolloProvider.defaultClient.query({
-      query: gqlQuery,
-      variables: {
-        owner: "0xe7e84204b7e180454e5c40d0e04d346214a83f85"
+      query: nftQuery,
+      variables() {
+        // Use vue reactive properties here
+        return {
+          owner
+        };
       }
     });
     const tokensResponse = response.data.tokens;
-    const tokens = [];
-    tokensResponse.forEach(async token => {
-      const tokenInfo = await dispatch("getAsset", { token });
-      if (tokenInfo) {
-        tokens.push({ ...token, ...tokenInfo });
-      }
-    });
+
+    const tokens = await dispatch("getAssets", { tokens: tokensResponse });
 
     await commit("updateTokens", tokens);
+  },
+  async getAssets(context, { tokens }) {
+    const requestLength = 10;
+    try {
+      let tokenParams = "";
+
+      let assets = [];
+      while (tokens.length) {
+        const requestTokens = tokens.splice(0, requestLength);
+        const limit = requestTokens.length;
+        requestTokens.forEach(async token => {
+          tokenParams = `${tokenParams}&asset_contract_addresses=${token.contract.id}&token_ids=${token.tokenID}`;
+        });
+        const assetsUrl = `https://api.opensea.io/api/v1/assets?limit=${limit}&order_direction=desc&offset=0${tokenParams}`;
+        console.log(assetsUrl);
+        const assetResponse = await this.$axios.$get(assetsUrl);
+        assets = [...assetResponse.assets];
+      }
+      console.log(assets);
+
+      // const assetResponse = await this.$axios.$get(assetsUrl);
+
+      // return assetResponse.assets;
+    } catch (error) {
+      console.error(error);
+      return undefined;
+    }
   },
   async getAsset(context, { token }) {
     try {
       const assetUrl = `https://api.opensea.io/api/v1/asset/${token.contract.id}/${token.tokenID}/`;
-      const assetResponse = await this.$axios.$get(assetUrl, {
-        headers: {
-          "X-API-KEY": "b35560019b6b42f4876238177f6ee73b" //the token is a variable which holds the token
-        }
-      });
+      const assetResponse = await this.$axios.$get(assetUrl);
       return assetResponse;
     } catch (error) {
       console.error(error);
