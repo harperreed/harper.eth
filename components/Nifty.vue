@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   props: {
     ethAddress: {
@@ -44,21 +45,15 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      assets: undefined,
-    };
+  computed: {
+    ...mapState({
+      assets: (state) => state.nifty.assets,
+    }),
   },
   mounted() {
-    this.getAssets();
+    // this.getAssets();
+    this.$store.dispatch("nifty/getAssets", { owner: this.ethAddress });
   },
-  methods: {
-    async getAssets() {
-      const assetsUrl = `https://api.opensea.io/api/v1/assets?owner=${this.ethAddress}&order_direction=desc&offset=0&limit=100`;
-      const assetsResponse = await this.$axios.$get(assetsUrl);
-      console.log(assetsResponse);
-      this.assets = assetsResponse.assets;
-    },
-  },
+  methods: {},
 };
 </script>

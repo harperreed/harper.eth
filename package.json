@@ -10,14 +10,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.1",
-
     "core-js": "^3.8.3",
     "ethereum-blockies-base64": "^1.0.2",
     "ethers": "^5.0.31",
     "nuxt": "^2.14.12",
     "nuxt-buefy": "^0.4.4",
     "nuxt-material-design-icons": "^1.0.4"
-
   },
   "devDependencies": {}
 }
