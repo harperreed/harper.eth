@@ -1,5 +1,29 @@
 # harper.eth
 
+this powers my ens domain ipfs page. It shows off my NFTs and a bit of my metadata!
+
+You can easily use it yourself. 
+
+
+## Use it for your page.
+
+In the `nuxt.config.js` edit the following: 
+
+
+### Title
+```json
+  title: "harper.eth - Harper's IPFS website", // change me
+```
+
+### Ethereum address
+```json
+ env: {
+    ethAddress: "0xe7e84204b7e180454e5c40d0e04d346214a83f85" // change me
+  },
+```
+
+Then you can build it. 
+
 ## Build Setup
 
 ```bash
@@ -9,12 +33,11 @@ $ yarn install
 # serve with hot reload at localhost:3000
 $ yarn dev
 
-# build for production and launch server
-$ yarn build
-$ yarn start
 
 # generate static project
 $ yarn generate
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Hosting
+
+There is also a `pinata` workflow to deploy the app to IPFS via pinata. You can them update your ENS domain to point to that hash. 
