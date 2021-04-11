@@ -1,7 +1,3 @@
-const ethers = require("ethers");
-
-const provider = new ethers.providers.CloudflareProvider();
-
 export const state = () => ({
   ensName: "",
   ensData: {}
@@ -10,7 +6,7 @@ export const state = () => ({
 export const actions = {
   async getENSName({ commit }, { ethAddress }) {
     console.log(ethAddress);
-    const name = await provider.lookupAddress(ethAddress);
+    const name = await this.$provider.lookupAddress(ethAddress);
 
     await commit("updateENSName", name);
   },
@@ -26,7 +22,7 @@ export const actions = {
     ];
     const data = {};
     try {
-      const resolver = await provider.getResolver(ensName);
+      const resolver = await this.$provider.getResolver(ensName);
 
       if (resolver) {
         for (const key of records) {
