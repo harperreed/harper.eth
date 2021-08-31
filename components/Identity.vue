@@ -1,29 +1,31 @@
 <template>
-  <div>
-    <h1 class="title is-1" v-if="ensName">{{ ensName }}</h1>
+  <div class="sm:mx-0 mx-2">
+    <h1 class="text-4xl" v-if="ensName">{{ ensName }}</h1>
 
-    <p class="is-size-5 block">
+    <p class="text-xl md:text-2xl font-extralight text-gray-400 mb-4">
       {{ ethAddress }}
     </p>
-    <p class="is-size-4 block" v-if="ensData.description">
+    <p class="text-xl mb-4" v-if="ensData.description">
       {{ ensData.description }}
     </p>
-    <p class="is-size-4 block" v-if="ensData.email">
+    <p class="text-xl " v-if="ensData.email">
       Send them an email at
       <a :href="`mailto:${ensData.email}`">{{ ensData.email }}</a
       >.
     </p>
 
-    <div class="social-media block buttons">
+    <div class="mt-2 flex sm:flex-row flex-wrap">
       <a
         v-for="(item, key) of links"
         :key="key"
         :href="item.href"
         target="_blank"
-        class="button is-light is-large"
+        class="py-2 px-4 border rounded-xl mr-2 my-2 hover:bg-green-400 flex max-w-min"
         :text="item.title"
-        ><b-icon :icon="item.icon" size="is-small"> </b-icon>
+        >{{ item.icon}}
       </a>
+
+
     </div>
   </div>
 </template>
@@ -48,7 +50,7 @@ export default {
         if (this.ensData["url"]) {
           links.push({
             title: "URL",
-            icon: "home",
+            icon: "homepage",
             href: `http://${this.ensData["url"]}`,
           });
         }
@@ -67,6 +69,23 @@ export default {
           });
         }
       }
+
+      // Extra goodies
+      links.push({
+            title: `etherscan`,
+            icon: "etherscan",
+            href: `https://etherscan.io/address/${this.ethAddress}`,
+          });
+      links.push({
+            title: `art.pizza`,
+            icon: "art.pizza",
+            href: `https://art.pizza/#/${this.ensName}`,
+          });
+      links.push({
+            title: `@${this.ensData["vnd.twitter"]}`,
+            icon: "opensea",
+            href: `https://opensea.io/${this.ethAddress}`,
+          });
       return links;
     },
   },
