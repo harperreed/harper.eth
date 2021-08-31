@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "harper.eth - Harper's IPFS website", // change me
+    title: "harper.eth", // change me
 
     htmlAttrs: {
       lang: "en"
@@ -30,13 +30,12 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: ['@nuxtjs/tailwindcss'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/buefy
-    "nuxt-buefy",
-    "nuxt-material-design-icons",
+
+
     "@nuxtjs/axios",
     "nuxt-vuex-localstorage"
   ],

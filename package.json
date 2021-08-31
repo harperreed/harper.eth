@@ -14,9 +14,9 @@
     "ethereum-blockies-base64": "^1.0.2",
     "ethers": "^5.1.0",
     "nuxt": "^2.14.12",
-    "nuxt-buefy": "^0.4.4",
-    "nuxt-material-design-icons": "^1.0.4",
     "nuxt-vuex-localstorage": "^1.2.7"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^4.2.1"
+  }
 }

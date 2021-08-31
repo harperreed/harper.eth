@@ -1,12 +1,6 @@
 <template>
-  <div>
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container has-text-centered">
+  <div class="body">
           <nuxt />
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -15,4 +9,8 @@ export default {};
 </script>
 
 <style>
+  .body{
+    @apply mx-auto container sm:my-4;
+  }
+
 </style>

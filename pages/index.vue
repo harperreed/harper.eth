@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <div class="columns is-8 is-variable">
-      <div class="column has-text-left">
-        <Identity :ethAddress="ethAddress" />
-      </div>
+  <div class=" mx-auto ">
 
-      <div class="column is-one-third has-text-left">
+        <Identity :ethAddress="ethAddress" />
+
+
         <Nifty :ethAddress="ethAddress" />
-      </div>
-    </div>
+
+
   </div>
 </template>
 
