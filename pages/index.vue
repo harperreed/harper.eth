@@ -1,12 +1,7 @@
 <template>
   <div class=" mx-auto ">
-
         <Identity :ethAddress="ethAddress" />
-
-
         <Nifty :ethAddress="ethAddress" />
-
-
   </div>
 </template>
 
