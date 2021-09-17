@@ -1,11 +1,25 @@
 <template>
-  <div class="body">
-          <nuxt />
+<div>
+  <div>
+  <Heading />
+  <Space />
+
   </div>
+  <div class="body">
+      <nuxt />
+  </div>
+</div>
 </template>
 
 <script>
-export default {};
+import Heading from "~/components/Heading";
+import Space from "~/components/Space";
+export default {
+  components: {
+    Space,
+    Heading
+  },
+};
 </script>
 
 <style>

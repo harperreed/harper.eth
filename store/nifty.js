@@ -1,5 +1,6 @@
 export const state = () => ({
-  assets: []
+  assets: [],
+  nameAssets: []
 });
 
 export const actions = {
@@ -21,7 +22,28 @@ export const actions = {
         offset += limit;
       }
     }
-    await commit("updateAssets", assets);
+    const newAssets = [];
+    const ensAssets = [];
+    assets.forEach((asset) => {
+      console.log(asset.asset_contract);
+      if (asset.asset_contract.symbol === 'ENS'
+        || asset.asset_contract.name === '.crypto'
+        || asset.asset_contract.symbol === 'NAME'
+        || asset.asset_contract.name === 'DCL Registrar') {
+        ensAssets.push(asset);
+      } else {
+        newAssets.push(asset);
+      }
+    });
+    if (newAssets.length > 0) {
+      this.assets = newAssets;
+      await commit("appendAssets", newAssets);
+    }
+    if (ensAssets.length > 0) {
+
+      await commit("appendNameAssets", ensAssets);
+    }
+
   },
 
   async getAsset(context, { token }) {
@@ -33,11 +55,22 @@ export const actions = {
       console.error(error);
       return undefined;
     }
-  }
+  },
 };
 
 export const mutations = {
   updateAssets: (state, data) => {
     state.assets = data;
+  },
+  appendAssets: (state, data) => {
+    state.assets = [...state.assets, ...data];
+
+  },
+  updateNameAssets: (state, data) => {
+    state.nameAssets = data;
+  },
+  appendNameAssets: (state, data) => {
+    state.nameAssets = [...state.nameAssets, ...data];
+
   }
 };

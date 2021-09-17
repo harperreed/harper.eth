@@ -8,7 +8,7 @@
       <div v-for="(asset, i) in assets" :key="i" class="md:break-inside">
         <div
 
-          class="border my-2 shadow-xl rounded-lg p-2 mb-6 mx-0 hover:bg-gray-200 hover:shadow-lg"
+          class="border my-2 shadow-xl rounded-lg p-2 mb-6 mx-0  hover:shadow-lg"
         >
           <img
             :src="asset.image_url"
@@ -34,8 +34,9 @@
           </p>
         </div>
       </div>
+</div>
 
-    </div>
+
   </div>
 </template>
 
@@ -51,6 +52,7 @@ export default {
   computed: {
     ...mapState({
       assets: (state) => state.nifty.assets,
+      names: (state) => state.nifty.nameAssets,
     }),
     showAssets() {
       if (this.assets.length > 0) {
@@ -59,10 +61,6 @@ export default {
         return false;
       }
     },
-  },
-  mounted() {
-    // this.getAssets();
-    this.$store.dispatch("nifty/getAssets", { owner: this.ethAddress });
   },
   methods: {},
 };
