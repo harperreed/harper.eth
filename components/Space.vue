@@ -1,11 +1,7 @@
 <template>
-
   <div class="metaverse">
-
-<canvas></canvas>
-
+    <canvas></canvas>
   </div>
-
 </template>
 
 <script>
@@ -96,18 +92,16 @@ export default {
         }
       }
       animate();
-    },
+    }
   },
   mounted() {
     this.init();
-  },
+  }
 };
 </script>
 
-
 <style scoped>
 .metaverse {
-  @apply max-h-screen bg-black min-h-full h-screen;
+  @apply max-h-screen bg-black min-h-full h-screen overflow-y-hidden overflow-x-hidden;
 }
-
 </style>

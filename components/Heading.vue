@@ -27,9 +27,13 @@ export default {
         'fuck art, let\'s party',
         'make jpegs not war',
         'don\'t confuse brains with a bull market',
+        'Look mummy, there\'s an aeroplane up in the sky',
+        'start the riot',
         'never give up',
         'sell early sell often',
         'HODL',
+        'My brother is nervous',
+        '⚰️⚰️⚰️',
         'Crypto is stupid',
         'Website was made with GPT3',
         'No future',
@@ -38,6 +42,10 @@ export default {
         'Pave the earth',
         'Where are you?',
         '🧑‍🎤',
+        '💀',
+        '💩',
+        '🤔',
+        '😰'
 
       ]
 
