@@ -17,6 +17,7 @@
     "nuxt-vuex-localstorage": "^1.2.7"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^4.2.1"
+    "@nuxtjs/tailwindcss": "^4.2.1",
+    "nuxt-vite": "^0.3.5"
   }
 }
