@@ -21,14 +21,17 @@ export default {
   },
   mounted() {
     // this.getAssets();
-    this.$store.dispatch("nifty/getAssets", { owner: this.ethAddress });
-    this.$store.dispatch("nifty/getAssets", {
-      owner: "0xE6683e6aAE795a8B71015d955CE0248d684dC2e3",
+
+    this.ethAddresses.forEach(address => {
+       this.$store.dispatch("nifty/getAssets", { owner:address });
     });
   },
   computed: {
+    ethAddresses() {
+      return process.env.ethAddresses;
+    },
     ethAddress() {
-      return process.env.ethAddress;
+      return process.env.ethAddresses[0];
     },
   },
 };

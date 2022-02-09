@@ -17,7 +17,8 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   env: {
-    ethAddress: "0xe7e84204b7e180454e5c40d0e04d346214a83f85" // change me
+    ethAddresses: ["0xe7e84204b7e180454e5c40d0e04d346214a83f85","0xE6683e6aAE795a8B71015d955CE0248d684dC2e3"], // change me
+    openseaApiKey: process.env.OPENSEA_APIKEY,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -34,8 +35,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-
-
     "@nuxtjs/axios",
     "nuxt-vuex-localstorage"
   ],

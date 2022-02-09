@@ -6,13 +6,20 @@ export const state = () => ({
 export const actions = {
   async getAssets({ commit, dispatch }, { owner }) {
     console.log("Let's get the assets");
+
+    const openseaRequestConfig = {
+      headers: {
+        'X-API-KEY': process.env.openseaApiKey,
+      },
+    };
+
     let done = false;
     const limit = 50;
     let offset = 0;
     let assets = [];
     while (!done) {
       const assetsUrl = `https://api.opensea.io/api/v1/assets?limit=${limit}&offset=${offset}&order_direction=desc&owner=${owner}`;
-      const assetResponse = await this.$axios.$get(assetsUrl);
+      const assetResponse = await this.$axios.$get(assetsUrl, openseaRequestConfig);
       assets = [...assets, ...assetResponse.assets];
 
       if (assetResponse.assets.length === 0) {
@@ -48,8 +55,14 @@ export const actions = {
 
   async getAsset(context, { token }) {
     try {
+      const openseaRequestConfig = {
+        headers: {
+          'X-API-KEY': process.env.openseaApiKey,
+        },
+      };
+
       const assetUrl = `https://api.opensea.io/api/v1/asset/${token.contract.id}/${token.tokenID}/`;
-      const assetResponse = await this.$axios.$get(assetUrl);
+      const assetResponse = await this.$axios.$get(assetUrl, openseaRequestConfig);
       return assetResponse;
     } catch (error) {
       console.error(error);
