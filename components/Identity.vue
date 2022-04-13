@@ -121,6 +121,12 @@ export default {
       });
 
 
+      links.push({
+        title: `fancy.art`,
+        icon: "fancy",
+        href: `https://search.fancy.art/owner/${this.ethAddress}`,
+      });
+
       return links;
     },
   },
