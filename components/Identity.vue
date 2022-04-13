@@ -119,11 +119,7 @@ export default {
         icon: "etherscan",
         href: `https://etherscan.io/address/${this.ethAddress}`,
       });
-      links.push({
-        title: `eth.af`,
-        icon: "eth.af",
-        href: `https://eth.af/${this.ethAddress}`,
-      });
+
 
       return links;
     },
